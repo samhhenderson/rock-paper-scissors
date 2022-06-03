@@ -1,0 +1,37 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: "roboto", Helvetica;
+    font-size: 18px;
+    justify-content: top;
+    align-items: center;
+    background-color:slategrey;
+}
+
+.title {
+    display: flex;
+    margin: 16px 0px 24px;
+    font-size: 48px;
+    font-weight: 900;
+    color: lightcyan;
+    
+}
+
+.playspace {
+    display: flex;
+    gap: 16px;
+}
+
+.rock,
+.paper,
+.scissors {
+    height: 200px;
+    width: 200px;
+    border-style: solid;
+    border-radius: 16px;
+    border-width: 8px;
+    padding: 8px;
+    background-color:lightcyan;
+    
+}
