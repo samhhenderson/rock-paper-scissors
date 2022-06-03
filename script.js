@@ -1,6 +1,13 @@
 var playerScore = 0;
 var computerScore = 0;
-var roundNumber = 0;
+
+const parentDiv = document.querySelector(".messageSpace");
+const roundMessage = document.createElement('div');
+const gameMessage = document.createElement('div');
+parentDiv.appendChild(roundMessage);
+parentDiv.appendChild(gameMessage);
+roundMessage.textContent = '';
+gameMessage.textContent = '';
 
 /* Create function that will randomly return Rock Paper or Scissors*/
 /* Create random number between 0 and 2 */
@@ -23,13 +30,11 @@ function game(playerScore, computerScore) {
     if (computerScore >= 5 || playerScore >=5 ) {
         
         if (playerScore > computerScore) {
-            return(`You win! Final score was ${playerScore} vs 
-                    ${computerScore}`)
+            return(`You win! Final score was ${playerScore} vs ${computerScore}`)
 
         }
         else {
-            return(`You lose! Final score was ${playerScore} vs 
-                    ${computerScore}`)
+            return(`You lose! Final score was ${playerScore} vs ${computerScore}`)
         }
     }
     else return("");
@@ -81,20 +86,16 @@ function playRound(humanChoice) {
             message = "It's a Tie!";
         }
     }
-    globalMessage = message;
-    console.log(globalMessage);
-    console.log(playerScore);
-    console.log(computerScore);
+    gameMessage.textContent = '';
+    roundMessage.textContent = message;
     const finalMessage = (game(playerScore, computerScore));
     if (finalMessage != "") {
-        console.log(finalMessage);
+        roundMessage.textContent = "Ready to play again?"
+        gameMessage.textContent = finalMessage;
         playerScore = 0;
         computerScore = 0;
     }
 }
-
-
-
 
 document.querySelectorAll(`input`).forEach(playButton => {
     const buttonClass = playButton.getAttribute('class');
